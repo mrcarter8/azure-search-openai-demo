@@ -6,34 +6,17 @@ param sku object = {
   name: 'standard'
 }
 
-param authOptions object = {}
-param semanticSearch string = 'disabled'
-
 resource search 'Microsoft.Search/searchServices@2021-04-01-preview' = {
   name: name
   location: location
-  tags: tags
-  identity: {
-    type: 'SystemAssigned'
-  }
-  properties: {
-    authOptions: authOptions
-    disableLocalAuth: false
-    disabledDataExfiltrationOptions: []
-    encryptionWithCmk: {
-      enforcement: 'Unspecified'
-    }
-    hostingMode: 'default'
-    networkRuleSet: {
-      bypass: 'None'
-      ipRules: []
-    }
-    partitionCount: 1
-    publicNetworkAccess: 'Enabled'
-    replicaCount: 1
-    semanticSearch: semanticSearch
-  }
   sku: sku
+  properties: {
+    replicaCount: 1
+    partitionCount: 1
+    hostingMode: 'default'
+  }
+
+  tags: tags
 }
 
 output id string = search.id

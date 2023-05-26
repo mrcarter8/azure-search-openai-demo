@@ -170,10 +170,10 @@ module searchService 'core/search/search-services.bicep' = {
   params: {
     name: !empty(searchServiceName) ? searchServiceName : 'gptkb-${resourceToken}'
     location: searchServiceResourceGroupLocation
-    tags: tags
     sku: {
       name: searchServiceSkuName
     }
+    tags: tags
   }
 }
 
