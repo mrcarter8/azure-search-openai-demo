@@ -171,15 +171,9 @@ module searchService 'core/search/search-services.bicep' = {
     name: !empty(searchServiceName) ? searchServiceName : 'gptkb-${resourceToken}'
     location: searchServiceResourceGroupLocation
     tags: tags
-    authOptions: {
-      aadOrApiKey: {
-        aadAuthFailureMode: 'http401WithBearerChallenge'
-      }
-    }
     sku: {
       name: searchServiceSkuName
     }
-    semanticSearch: 'free'
   }
 }
 
