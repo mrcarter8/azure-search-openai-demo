@@ -174,6 +174,11 @@ module searchService 'core/search/search-services.bicep' = {
       name: searchServiceSkuName
     }
     tags: tags
+    authOptions: {
+      aadOrApiKey: {
+        aadAuthFailureMode: 'http401WithBearerChallenge'
+      }
+    }
   }
 }
 

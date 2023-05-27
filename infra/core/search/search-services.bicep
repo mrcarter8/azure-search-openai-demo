@@ -6,6 +6,8 @@ param sku object = {
   name: 'standard'
 }
 
+param authOptions object = {}
+
 resource search 'Microsoft.Search/searchServices@2021-04-01-preview' = {
   name: name
   location: location
@@ -14,6 +16,7 @@ resource search 'Microsoft.Search/searchServices@2021-04-01-preview' = {
     replicaCount: 1
     partitionCount: 1
     hostingMode: 'default'
+    authOptions: authOptions
   }
 
   tags: tags
